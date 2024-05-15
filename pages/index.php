@@ -13,3 +13,16 @@ require_once "../functionsProduct.php";
     <?showTitle("Супер-пупер-распупенная главная страница");?>
 </body>
 </html>
+<!-- <?
+
+// if(isset($_GET['delete_cookie']) && $_GET['delete_cookie'] == 'true'){
+//     echo "<div class='message'>УУУУУ, бляха.</div>";
+//     setcookie("name", null,-1,'/');
+//     setcookie("email", null,-1,'/');
+//     setcookie("phone", null,-1,'/');
+//     setcookie("login", null,-1,'/');
+//     setcookie("password", null,-1,'/');
+
+//     echo($_COOKIE['name']);
+// } 
+?> -->

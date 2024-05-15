@@ -7,7 +7,7 @@ require_once "../functionsProduct.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Вход</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
     <style>
         .form {
             display: flex;
@@ -68,47 +68,21 @@ require_once "../functionsProduct.php";
 <body>
     <?showHeader();?>
     <div class="wrapper">
-        <form action="" method="post" class="form" id="atr_form">
-            <label for="" class="form_label">Логин<input type="text" name="login" id="login" class="inputs"></label>
+        <form action="" method="post" class="form">
+            <label for="" class="form_label">Логин<input type="text" name="login"   class="inputs"></label>
             <label for="" class="form_label">Пароль<input type="text" name="password"  class="inputs"></label>
             <input type="submit" value="Войти" name="atr_btn" class="atr_btn">
             <span>Если Вы впервые на нашем сайте то <a href="registration.php">зарегестрируйтесть</a>.</span>
         </form>
     </div>
 </body>
-<!-- Ёмаё как это переделать -->
-<script>
-    $(document).ready(function() {
-        // Обработчик отправки формы
-        $('#atr_form').submit(function(event){
-            event.preventDefault(); // Предотвращение стандартного поведения формы
-
-            // Получение значения комментария из поля ввода
-            var login = $('#login').val();
-            var password = $('#password').val();
-            
-            // Отправка данных на сервер с помощью Ajax
-            $.ajax({
-                type: 'POST',
-                url: 'authorization.php', // Файл на сервере для обработки данных
-                data: { login: login, password: password }, // Данные для отправки
-                success: function(response) {
-                    // // Обновление блока с комментариями на странице
-                    // $('#comments').append('<p>' + commentText + '</p>');
-                    // $('#comment').val(''); // Очистка поля ввода
-                }
-            });
-        });
-    });
-</script>
 </html>
 <?
     if(isset($_POST['atr_btn'])) {
-        echo '<h3 class="message">Ткнулось</h3>';
         $login = $_REQUEST['login'];
         $password = $_REQUEST['password'];
         if($login != "" && $password != "") {
             autorization($login, $password, $conn);
-        }
+        } 
     }
 ?>

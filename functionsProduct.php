@@ -79,13 +79,12 @@ function autorization($login, $password, $conn) {
         echo "<div class='message'>Такого пользователя нет в базе.</div>";
     } else {
         while($row = $result->fetch_array()){
-            echo "<div class='message'>". $row['name'] ."</div>";
-            setcookie("name", $row['name'], time() + 3600 * 4);
-            setcookie("email", $row['email'], time() + 3600 * 4);
-            setcookie("phone", $row['phone'], time() + 3600 * 4);
-            setcookie("login", $row['login'], time() + 3600 * 4);
-            setcookie("password", $row['password'], time() + 3600 * 4);            
-            // echo "<div class='message'>". $_COOKIE['name'] ."</div>";            
+            // setcookie("name", $row['name'], time() + 3600 * 4);
+            // setcookie("email", $row['email'], time() + 3600 * 4);
+            // setcookie("phone", $row['phone'], time() + 3600 * 4);
+            // setcookie("login", $row['login'], time() + 3600 * 4);
+            // setcookie("password", $row['password'], time() + 3600 * 4);
+            echo "<div class='message'>". $_COOKIE['name'] ."</div>";
         }
         header("Location: index.php");
     }

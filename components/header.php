@@ -1,3 +1,4 @@
+<? session_start();?>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -44,7 +45,7 @@
       </p>
       <p>
         <?
-        if(isset($_COOKIE['name'])) {
+        if(isset($_COOKIE['name']) && $_COOKIE['name'] != '' ) {
           echo "<a href='login.php' class='header-btn'>".$_COOKIE['name']."</a>";
         } else {
           echo "<a href='authorization.php' class='header-btn'>Войти</a>";
@@ -54,4 +55,3 @@
     </div>
   </body>
 </html>
-<? session_start();?>
