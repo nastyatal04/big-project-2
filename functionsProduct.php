@@ -79,11 +79,11 @@ function autorization($login, $password, $conn) {
         echo "<div class='message'>Такого пользователя нет в базе.</div>";
     } else {
         while($row = $result->fetch_array()){
-            // setcookie("name", $row['name'], time() + 3600 * 4);
-            // setcookie("email", $row['email'], time() + 3600 * 4);
-            // setcookie("phone", $row['phone'], time() + 3600 * 4);
-            // setcookie("login", $row['login'], time() + 3600 * 4);
-            // setcookie("password", $row['password'], time() + 3600 * 4);
+            setcookie("name", $row['name'],  time() + 3600);
+            setcookie("email", $row['email'],  time() + 3600);
+            setcookie("phone", $row['phone'],  time() + 3600);
+            setcookie("login", $row['login'],  time() + 3600);
+            setcookie("password", $row['password'],  time() + 3600);
             echo "<div class='message'>". $_COOKIE['name'] ."</div>";
         }
         header("Location: index.php");
@@ -96,5 +96,14 @@ function countProducts() {
         $total += $value;
     }
     return $total;
+}
+
+function delCoockie() {
+    setcookie("name",'', 1, $path);
+    setcookie("email",'', 1, $path);
+    setcookie("phone",'', 1, $path);
+    setcookie("login",'', 1, $path);
+    setcookie("password",'', 1, $path);
+    header("Location: index.php");
 }
 ?>
